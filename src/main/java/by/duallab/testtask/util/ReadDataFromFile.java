@@ -2,15 +2,17 @@ package by.duallab.testtask.util;
 
 import by.duallab.testtask.bus.Bus;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalTime;
-import java.util.HashSet;
 import java.util.LinkedList;
 
+import static by.duallab.testtask.app.ApplicationConstants.SERVICE_GROTTY_NAME;
+import static by.duallab.testtask.app.ApplicationConstants.SERVICE_POSH_NAME;
+
 public class ReadDataFromFile {
-    private static final String SERVICE_GROTTY_NAME = "Grotty";
-    private static final String SERVICE_POSH_NAME = "Posh";
 
     public static LinkedList<Bus> readBusesFromFile(String inputFilePath) {
         LinkedList<Bus> buses = new LinkedList<>();

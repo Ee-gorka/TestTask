@@ -4,7 +4,6 @@ import by.duallab.testtask.bus.BusService;
 import by.duallab.testtask.util.ReadDataFromFile;
 import by.duallab.testtask.util.WriteDataToFile;
 
-import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Main {
