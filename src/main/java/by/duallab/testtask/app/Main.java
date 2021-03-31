@@ -20,8 +20,6 @@ public class Main {
             busService.deleteUselessBuses();
             WriteDataToFile.printDataToFile(busService);
             System.out.println("Timetable was optimized and written to file (" + PATH_TO_OUTPUT_FILE + ")");
-        } else {
-            System.out.println("Input file was empty or all of the buses are useless!");
         }
     }
 }
