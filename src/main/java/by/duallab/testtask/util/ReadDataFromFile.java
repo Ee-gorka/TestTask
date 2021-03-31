@@ -21,7 +21,7 @@ public class ReadDataFromFile {
             Bus bus;
             while ((line = readerFromFile.readLine()) != null) {
                 bus = parseData(line);
-                if (bus != null && bus.getDuration() < 60) {
+                if (bus != null && bus.getDuration() <= 60) {
                     buses.add(bus);
                 }
             }

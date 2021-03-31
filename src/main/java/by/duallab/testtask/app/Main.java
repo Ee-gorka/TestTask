@@ -12,12 +12,17 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Enter path to input file:");
         String filePath;
-        try(Scanner in = new Scanner(System.in)){
-            filePath=in.nextLine();
+        try (Scanner in = new Scanner(System.in)) {
+            filePath = in.nextLine();
         }
         BusService busService = new BusService(ReadDataFromFile.readBusesFromFile(filePath));
-        busService.markUselessBuses();
-        WriteDataToFile.printDataToFile(busService);
-        System.out.println("Timetable was optimized and written to file (" + PATH_TO_OUTPUT_FILE + ")");
+        if (!busService.getBuses().isEmpty()) {
+            busService.deleteUselessBuses();
+            WriteDataToFile.printDataToFile(busService);
+            System.out.println("Timetable was optimized and written to file" +
+                    " (" + PATH_TO_OUTPUT_FILE + ")");
+        } else {
+            System.out.println("Input file was empty or all of the buses are useless!");
+        }
     }
 }

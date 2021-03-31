@@ -14,17 +14,16 @@ public class WriteDataToFile {
 
     public static void printDataToFile(BusService busService) {
         ArrayList<Bus> busesToPrint = busService.getBuses();
-        boolean[] masks = busService.getMasksOfBuses();
         try (BufferedWriter writerToFile = new BufferedWriter(new FileWriter(PATH_TO_OUTPUT_FILE))) {
-            for (int i = 0; i < masks.length; ++i) {
-                if(masks[i]&&busesToPrint.get(i).getServiceName().equals(SERVICE_POSH_NAME)){
-                    writerToFile.write(busesToPrint.get(i).toString() + LF);
+            for (Bus bus : busesToPrint) {
+                if (bus.getServiceName().equals(SERVICE_POSH_NAME)) {
+                    writerToFile.write(bus.toString() + LF);
                 }
             }
             writerToFile.write(LF);
-            for (int i = 0; i < masks.length; ++i) {
-                if(masks[i]&&busesToPrint.get(i).getServiceName().equals(SERVICE_GROTTY_NAME)){
-                    writerToFile.write(busesToPrint.get(i).toString() + LF);
+            for (Bus bus : busesToPrint) {
+                if (bus.getServiceName().equals(SERVICE_GROTTY_NAME)) {
+                    writerToFile.write(bus.toString() + LF);
                 }
             }
         } catch (IOException e) {
