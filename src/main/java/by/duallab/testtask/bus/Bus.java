@@ -1,13 +1,19 @@
 package by.duallab.testtask.bus;
 
+import java.text.DateFormat;
+import java.time.DateTimeException;
 import java.time.Duration;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Bus implements Comparable<Bus> {
     private static final int MINUTES_IN_HOUR = 60;
     private static final int HOURS_IN_DAY = 24;
     private static final String SERVICE_POSH_NAME = "Posh";
+    private static final String TIME_PATTERN = "HH:mm";
+    private static final DateTimeFormatter FORMAT_TO_PRINT = DateTimeFormatter.ofPattern(TIME_PATTERN);
+    public static final String SPACE = " ";
     private String serviceName;
     private LocalTime departureTime;
     private LocalTime arrivalTime;
@@ -105,5 +111,12 @@ public class Bus implements Comparable<Bus> {
     @Override
     public int hashCode() {
         return Objects.hash(serviceName, departureTime, arrivalTime, duration, arrivingAfterMidnight);
+    }
+
+    @Override
+    public String toString() {
+        return serviceName + SPACE + departureTime.format(FORMAT_TO_PRINT) + SPACE
+                + arrivalTime.format(FORMAT_TO_PRINT);
+
     }
 }
