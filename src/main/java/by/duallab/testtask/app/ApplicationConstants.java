@@ -3,7 +3,7 @@ package by.duallab.testtask.app;
 import java.time.format.DateTimeFormatter;
 
 public class ApplicationConstants {
-    public static final String PATH_TO_OUTPUT_FILE = "src/output.txt";
+    public static final String PATH_TO_OUTPUT_FILE = "output.txt";
     public static final int MINUTES_IN_HOUR = 60;
     public static final int HOURS_IN_DAY = 24;
     public static final String TIME_PATTERN = "HH:mm";

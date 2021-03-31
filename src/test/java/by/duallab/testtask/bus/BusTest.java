@@ -11,7 +11,7 @@ class BusTest {
     public void checkEqualsBus(){
         Bus firstBus = new Bus("Posh",LocalTime.of(10,10),LocalTime.of(11,0));
         Bus secondBus = new Bus("Posh",LocalTime.of(10,10),LocalTime.of(11,0));
-        assertEquals(-1,firstBus.compareTo(secondBus));
+        assertEquals(0,firstBus.compareTo(secondBus));
     }
     @Test
     public void checkBusesWithSameTimetableButDifferentServiceName(){

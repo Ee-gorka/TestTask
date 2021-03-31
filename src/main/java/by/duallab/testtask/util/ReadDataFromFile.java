@@ -7,15 +7,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalTime;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import static by.duallab.testtask.app.ApplicationConstants.SERVICE_GROTTY_NAME;
 import static by.duallab.testtask.app.ApplicationConstants.SERVICE_POSH_NAME;
 
 public class ReadDataFromFile {
 
-    public static LinkedList<Bus> readBusesFromFile(String inputFilePath) {
-        LinkedList<Bus> buses = new LinkedList<>();
+    public static ArrayList<Bus> readBusesFromFile(String inputFilePath) {
+        ArrayList<Bus> buses = new ArrayList<>();
         try (BufferedReader readerFromFile = new BufferedReader(new FileReader(inputFilePath))) {
             String line;
             Bus bus;
