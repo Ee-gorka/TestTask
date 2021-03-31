@@ -26,16 +26,20 @@ public class BusService {
                 ++i;
             }
         }
-        checkLastBus();
+        checkLastBuses();
     }
 
-    public void checkLastBus() {
+    public void checkLastBuses() {
+        int i = buses.size() - 1;
         if (buses.size() >= 2) {
-            int isBetter = buses.get(0).compareTo(buses.get(buses.size() - 1));
-            if (isBetter > 0) {
-                buses.remove(buses.size() - 1);
-            } else if (isBetter < 0) {
-                buses.remove(0);
+            while (buses.get(i).getDepartureTime().getHour() == 23) {
+                int isBetter = buses.get(0).compareTo(buses.get(i));
+                if (isBetter > 0) {
+                    buses.remove(buses.size() - 1);
+                    if (i > 1) --i;
+                } else if (isBetter < 0) {
+                    buses.remove(0);
+                }
             }
         }
     }
