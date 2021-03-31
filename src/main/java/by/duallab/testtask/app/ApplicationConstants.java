@@ -12,4 +12,5 @@ public class ApplicationConstants {
     public static final String SERVICE_GROTTY_NAME = "Grotty";
     public static final String LF = "\n";
     public static final String SPACE = " ";
+    public static final String DELIMITERS = "[ :]+";
 }

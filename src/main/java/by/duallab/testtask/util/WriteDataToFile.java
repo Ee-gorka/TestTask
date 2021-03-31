@@ -27,7 +27,7 @@ public class WriteDataToFile {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Problem with output file!");
+            System.err.println("Problem with output file!");
         }
     }
 }
