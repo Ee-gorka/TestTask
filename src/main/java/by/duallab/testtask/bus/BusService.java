@@ -26,6 +26,18 @@ public class BusService {
                 ++i;
             }
         }
+        checkLastBus();
     }
 
+    public void checkLastBus() {
+        if (buses.size() >= 2) {
+            int isBetter = buses.get(0).compareTo(buses.get(buses.size() - 1));
+            if (isBetter > 0) {
+                buses.remove(buses.size() - 1);
+            } else if (isBetter < 0) {
+                buses.remove(0);
+            }
+        }
+    }
 }
+
