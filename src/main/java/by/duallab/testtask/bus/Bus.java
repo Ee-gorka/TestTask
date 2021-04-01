@@ -6,7 +6,7 @@ import java.util.Objects;
 
 import static by.duallab.testtask.app.ApplicationConstants.*;
 
-public class Bus implements Comparable<Bus> {
+public class Bus {
     private final String serviceName;
     private final LocalTime departureTime;
     private final LocalTime arrivalTime;
@@ -47,10 +47,9 @@ public class Bus implements Comparable<Bus> {
         return arrivingAfterMidnight;
     }
 
-    @Override
-    public int compareTo(Bus bus) {
+    public int compareBuses(Bus bus) {
         if (this.equals(bus)) {
-            return 0;
+            return 1;
         }
         if (this.getDepartureTime().equals(bus.getDepartureTime())) {
             return compareBusesWithSameDepartureTime(bus);

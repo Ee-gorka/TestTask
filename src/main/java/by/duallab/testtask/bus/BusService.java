@@ -16,7 +16,7 @@ public class BusService {
     public void deleteUselessBuses() {
         buses.sort(Comparator.comparing(Bus::getDepartureTime));
         for (int i = 1; i < buses.size(); ) {
-            int isBetter = buses.get(i).compareTo(buses.get(i - 1));
+            int isBetter = buses.get(i).compareBuses(buses.get(i - 1));
             if (isBetter > 0) {
                 buses.remove(i - 1);
                 i = Integer.max(1, i - 1);
@@ -33,7 +33,7 @@ public class BusService {
         int i = buses.size() - 1;
         if (buses.size() >= 2) {
             while (buses.get(i).getDepartureTime().getHour() == 23) {
-                int isBetter = buses.get(0).compareTo(buses.get(i));
+                int isBetter = buses.get(0).compareBuses(buses.get(i));
                 if (isBetter > 0) {
                     buses.remove(buses.size() - 1);
                     if (i > 1) --i;
