@@ -30,15 +30,14 @@ public class BusService {
     }
 
     public void checkLastBuses() {
-        int i = buses.size() - 1;
         if (buses.size() >= 2) {
-            while (buses.get(i).getDepartureTime().getHour() == 23) {
+            for (int i = buses.size() - 1; i > 1; ) {
                 int isBetter = buses.get(0).compareBuses(buses.get(i));
                 if (isBetter > 0) {
-                    buses.remove(buses.size() - 1);
-                    if (i > 1) --i;
-                } else if (isBetter < 0) {
-                    buses.remove(0);
+                    buses.remove(i);
+                    i = Integer.max(1, i - 1);
+                } else {
+                    break;
                 }
             }
         }
